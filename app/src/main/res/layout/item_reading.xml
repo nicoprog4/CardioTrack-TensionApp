@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/divider"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Status indicator -->
+        <LinearLayout
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/circle_status_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_item_systolic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:includeFontPadding="false"/>
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="1dp"
+                android:background="@color/divider"/>
+
+            <TextView
+                android:id="@+id/tv_item_diastolic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="80"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
+
+        <!-- Main info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:id="@+id/tv_item_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="Normal"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_item_arrhythmia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚠ Arritmia"
+                    android:textColor="@color/status_high2"
+                    android:textSize="11sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_item_pulse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="❤ 72 lpm"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_item_arm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="· Izquierdo"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_item_datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Hoy, 08:30"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_item_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=""
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- Delete button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_delete"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="✕"
+            android:textSize="14sp"
+            app:backgroundTint="#10EF4444"
+            app:cornerRadius="12dp"
+            android:textColor="@color/status_high2"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

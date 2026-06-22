@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stats_title"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Análisis de tus registros"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Period selector -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_7days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_period_week"
+                android:checkable="true"
+                android:checked="true"
+                style="@style/Widget.Material3.Chip.Filter"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_30days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_period_month"
+                android:checkable="true"
+                style="@style/Widget.Material3.Chip.Filter"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_3months"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_period_3months"
+                android:checkable="true"
+                style="@style/Widget.Material3.Chip.Filter"/>
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Summary stats row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp" android:gravity="center">
+                    <TextView android:id="@+id/tv_total_readings" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0" android:textColor="@color/primary"
+                        android:textSize="26sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Mediciones" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp" android:gravity="center">
+                    <TextView android:id="@+id/tv_stats_avg_sys" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--" android:textColor="@color/gauge_systolic"
+                        android:textSize="26sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Prom. SIS" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp" android:gravity="center">
+                    <TextView android:id="@+id/tv_stats_avg_dia" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--" android:textColor="@color/gauge_diastolic"
+                        android:textSize="26sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Prom. DIA" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Min/Max row -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/divider"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Sistólica" android:textColor="@color/text_primary" android:textSize="15sp"
+                    android:textStyle="bold" android:layout_marginBottom="12dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_sys_min" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--" android:textColor="@color/status_optimal"
+                            android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Mínima" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="1dp" android:layout_height="40dp" android:background="@color/divider"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_sys_avg" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--" android:textColor="@color/primary"
+                            android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Promedio" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="1dp" android:layout_height="40dp" android:background="@color/divider"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_sys_max" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--" android:textColor="@color/status_high2"
+                            android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Máxima" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="@color/divider" android:layout_marginTop="16dp" android:layout_marginBottom="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Diastólica" android:textColor="@color/text_primary" android:textSize="15sp"
+                    android:textStyle="bold" android:layout_marginBottom="12dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_dia_min" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--" android:textColor="@color/status_optimal"
+                            android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Mínima" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="1dp" android:layout_height="40dp" android:background="@color/divider"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_dia_avg" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--" android:textColor="@color/gauge_diastolic"
+                            android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Promedio" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="1dp" android:layout_height="40dp" android:background="@color/divider"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_dia_max" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--" android:textColor="@color/status_high2"
+                            android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Máxima" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Chart (custom view) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/divider"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stats_chart_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.tension_app.BPChartView
+                    android:id="@+id/chart_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"/>
+
+                <!-- Legend -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <View android:layout_width="24dp" android:layout_height="3dp"
+                        android:background="@color/gauge_systolic" android:layout_marginEnd="4dp"
+                        android:layout_gravity="center_vertical"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Sistólica" android:textSize="12sp" android:textColor="@color/text_secondary"
+                        android:layout_marginEnd="16dp"/>
+
+                    <View android:layout_width="24dp" android:layout_height="3dp"
+                        android:background="@color/gauge_diastolic" android:layout_marginEnd="4dp"
+                        android:layout_gravity="center_vertical"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Diastólica" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Distribution -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/divider"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stats_distribution"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_distribution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Pulse stats -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/divider"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Pulso cardíaco" android:textColor="@color/text_primary" android:textSize="15sp"
+                    android:textStyle="bold" android:layout_marginBottom="12dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_pulse_min" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--"
+                            android:textColor="@color/status_optimal" android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Mínimo" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_pulse_avg" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--"
+                            android:textColor="@color/gauge_pulse" android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Promedio" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tv_pulse_max" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="--"
+                            android:textColor="@color/status_high2" android:textSize="22sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Máximo" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Arrhythmia count -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/status_high2_bg"
+                    android:padding="12dp"
+                    android:gravity="center_vertical">
+                    <!-- rounded bg -->
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="⚠ Episodios con arritmia"
+                        android:textColor="@color/status_high2" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/tv_arrhythmia_count" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0"
+                        android:textColor="@color/status_high2" android:textSize="18sp" android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- No data state -->
+        <LinearLayout
+            android:id="@+id/layout_no_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="40dp"
+            android:visibility="gone">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📊" android:textSize="48sp" android:layout_marginBottom="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/no_stats" android:textColor="@color/text_primary"
+                android:textSize="18sp" android:textStyle="bold" android:gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

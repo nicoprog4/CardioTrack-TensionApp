@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/color_dot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/circle_primary_bg"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Óptima"
+            android:textSize="13sp"
+            android:textColor="@color/text_primary"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_systolic_range"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="&lt; 120"
+        android:textSize="13sp"
+        android:textColor="@color/text_primary"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_diastolic_range"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="&lt; 80"
+        android:textSize="13sp"
+        android:textColor="@color/text_primary"
+        android:gravity="center"/>
+
+</LinearLayout>

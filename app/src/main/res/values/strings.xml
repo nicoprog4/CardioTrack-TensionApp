@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CardioTrack</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Inicio</string>
+    <string name="nav_add">Registrar</string>
+    <string name="nav_history">Historial</string>
+    <string name="nav_stats">Estadísticas</string>
+    <string name="nav_profile">Perfil</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_greeting_morning">Buenos días</string>
+    <string name="dashboard_greeting_afternoon">Buenas tardes</string>
+    <string name="dashboard_greeting_evening">Buenas noches</string>
+    <string name="last_reading">Última medición</string>
+    <string name="no_readings">Sin mediciones aún</string>
+    <string name="add_first_reading">Registra tu primera medición</string>
+    <string name="today_readings">Mediciones de hoy</string>
+    <string name="weekly_avg">Promedio semanal</string>
+    <string name="trend_improving">Mejorando</string>
+    <string name="trend_stable">Estable</string>
+    <string name="trend_worsening">En aumento</string>
+
+    <!-- Reading form -->
+    <string name="add_reading">Nueva Medición</string>
+    <string name="systolic">Sistólica</string>
+    <string name="diastolic">Diastólica</string>
+    <string name="pulse">Pulso</string>
+    <string name="systolic_hint">mmHg (ej: 120)</string>
+    <string name="diastolic_hint">mmHg (ej: 80)</string>
+    <string name="pulse_hint">lpm (ej: 72)</string>
+    <string name="arm_label">Brazo</string>
+    <string name="arm_left">Izquierdo</string>
+    <string name="arm_right">Derecho</string>
+    <string name="position_label">Posición</string>
+    <string name="position_sitting">Sentado</string>
+    <string name="position_lying">Acostado</string>
+    <string name="position_standing">De pie</string>
+    <string name="arrhythmia">Arritmia detectada</string>
+    <string name="notes_hint">Notas adicionales (opcional)…</string>
+    <string name="save_reading">Guardar Medición</string>
+    <string name="reading_saved">Medición guardada exitosamente</string>
+    <string name="reading_deleted">Medición eliminada</string>
+    <string name="undo">Deshacer</string>
+    <string name="date_time">Fecha y hora</string>
+    <string name="set_datetime">Establecer fecha/hora</string>
+
+    <!-- Pressure status labels -->
+    <string name="status_optimal">Óptima</string>
+    <string name="status_normal">Normal</string>
+    <string name="status_elevated">Elevada</string>
+    <string name="status_high1">Hipertensión I</string>
+    <string name="status_high2">Hipertensión II</string>
+    <string name="status_crisis">Crisis Hipertensiva</string>
+    <string name="status_low">Hipotensión</string>
+    <string name="status_unknown">Sin clasificar</string>
+
+    <!-- History -->
+    <string name="history_title">Historial</string>
+    <string name="filter_all">Todos</string>
+    <string name="filter_today">Hoy</string>
+    <string name="filter_week">Semana</string>
+    <string name="filter_month">Mes</string>
+    <string name="no_history">No hay registros</string>
+    <string name="delete_reading">Eliminar</string>
+    <string name="delete_confirm">¿Eliminar esta medición?</string>
+    <string name="delete_confirm_msg">Esta acción no se puede deshacer.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="export_pdf">Exportar PDF</string>
+
+    <!-- Stats -->
+    <string name="stats_title">Estadísticas</string>
+    <string name="stats_period_week">7 días</string>
+    <string name="stats_period_month">30 días</string>
+    <string name="stats_period_3months">3 meses</string>
+    <string name="stats_avg_systolic">Sistólica promedio</string>
+    <string name="stats_avg_diastolic">Diastólica promedio</string>
+    <string name="stats_avg_pulse">Pulso promedio</string>
+    <string name="stats_max">Máx</string>
+    <string name="stats_min">Mín</string>
+    <string name="stats_total_readings">Total mediciones</string>
+    <string name="stats_distribution">Distribución de estados</string>
+    <string name="stats_chart_title">Tendencia de presión</string>
+    <string name="no_stats">Sin datos suficientes</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Mi Perfil</string>
+    <string name="profile_name">Nombre</string>
+    <string name="profile_age">Edad</string>
+    <string name="profile_gender">Género</string>
+    <string name="profile_weight">Peso (kg)</string>
+    <string name="profile_height">Talla (cm)</string>
+    <string name="profile_doctor">Médico tratante</string>
+    <string name="profile_save">Guardar perfil</string>
+    <string name="profile_saved">Perfil actualizado</string>
+    <string name="reminder_title">Recordatorios</string>
+    <string name="reminder_enable">Activar recordatorios diarios</string>
+    <string name="reminder_time">Hora del recordatorio</string>
+    <string name="gender_male">Masculino</string>
+    <string name="gender_female">Femenino</string>
+    <string name="gender_other">Otro</string>
+    <string name="about">Acerca de CardioTrack</string>
+    <string name="version">Versión 1.0</string>
+
+    <!-- Units -->
+    <string name="mmhg">mmHg</string>
+    <string name="bpm">lpm</string>
+    <string name="unit_kg">kg</string>
+    <string name="unit_cm">cm</string>
+
+    <!-- Validation -->
+    <string name="error_required">Campo requerido</string>
+    <string name="error_systolic_range">Valor entre 60–250 mmHg</string>
+    <string name="error_diastolic_range">Valor entre 40–150 mmHg</string>
+    <string name="error_pulse_range">Valor entre 30–250 lpm</string>
+    <string name="error_diastolic_gt">Diastólica debe ser menor que sistólica</string>
+</resources>

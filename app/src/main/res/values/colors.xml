@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary brand colors -->
+    <color name="primary">#4A6CF7</color>
+    <color name="primary_dark">#2D4FD6</color>
+    <color name="primary_light">#7B95FA</color>
+    <color name="primary_container">#E8ECFF</color>
+
+    <!-- Surface & background -->
+    <color name="background">#F0F4FF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F5F7FF</color>
+    <color name="card_bg">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#1A1F36</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- Status colors -->
+    <color name="status_optimal">#22C55E</color>
+    <color name="status_optimal_bg">#DCFCE7</color>
+    <color name="status_normal">#3B82F6</color>
+    <color name="status_normal_bg">#DBEAFE</color>
+    <color name="status_elevated">#F59E0B</color>
+    <color name="status_elevated_bg">#FEF3C7</color>
+    <color name="status_high1">#F97316</color>
+    <color name="status_high1_bg">#FFEDD5</color>
+    <color name="status_high2">#EF4444</color>
+    <color name="status_high2_bg">#FEE2E2</color>
+    <color name="status_crisis">#991B1B</color>
+    <color name="status_crisis_bg">#FEE2E2</color>
+    <color name="status_low">#8B5CF6</color>
+    <color name="status_low_bg">#EDE9FE</color>
+
+    <!-- Gauge colors -->
+    <color name="gauge_systolic">#4A6CF7</color>
+    <color name="gauge_diastolic">#EC4899</color>
+    <color name="gauge_pulse">#F59E0B</color>
+
+    <!-- Divider -->
+    <color name="divider">#E5E7EB</color>
+    <color name="ripple">#1A4A6CF7</color>
+
+    <!-- Dark theme -->
+    <color name="dark_background">#0F1629</color>
+    <color name="dark_surface">#1A2340</color>
+    <color name="dark_surface_variant">#242E4E</color>
+    <color name="dark_text_primary">#F1F5F9</color>
+    <color name="dark_text_secondary">#94A3B8</color>
+</resources>

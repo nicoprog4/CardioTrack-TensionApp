@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/add_reading"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Ingresa los valores de tu tensiómetro"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"/>
+
+        <!-- Live preview card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_primary"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vista previa"
+                    android:textColor="#FFFFFFAA"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tv_preview_systolic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="---"
+                        android:textColor="@color/white"
+                        android:textSize="52sp"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" / "
+                        android:textColor="#FFFFFFAA"
+                        android:textSize="28sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_preview_diastolic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="---"
+                        android:textColor="#FFFFFFCC"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" mmHg"
+                        android:textColor="#FFFFFF88"
+                        android:textSize="14sp"
+                        android:layout_marginStart="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_preview_pulse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="❤ -- lpm"
+                        android:textColor="#FFFFFFCC"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="12dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_preview_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/status_chip_bg"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="Ingresa valores"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Main values card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/divider"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Valores de presión"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <!-- Systolic -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_systolic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="@string/systolic"
+                    app:helperText="Presión máxima (cuando el corazón late)"
+                    app:startIconDrawable="@android:drawable/arrow_up_float"
+                    style="@style/InputLayoutStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_systolic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="18sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Diastolic -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_diastolic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="@string/diastolic"
+                    app:helperText="Presión mínima (cuando el corazón descansa)"
+                    app:startIconDrawable="@android:drawable/arrow_down_float"
+                    style="@style/InputLayoutStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_diastolic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="18sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Pulse -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_pulse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pulse"
+                    app:helperText="Frecuencia cardíaca en latidos por minuto"
+                    style="@style/InputLayoutStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_pulse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="18sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Details card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/divider"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Detalles adicionales"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <!-- Arm selection -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/arm_label"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_arm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_arm_left"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/arm_left"
+                        android:checked="true"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_arm_right"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/arm_right"/>
+                </RadioGroup>
+
+                <!-- Position selection -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/position_label"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_position"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_sitting"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/position_sitting"
+                        android:checked="true"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_lying"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/position_lying"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_standing"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/position_standing"/>
+                </RadioGroup>
+
+                <!-- Arrhythmia toggle -->
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_arrhythmia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/arrhythmia"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary"/>
+
+                <!-- Date / Time -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="@string/date_time"
+                    style="@style/InputLayoutStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_datetime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:textSize="15sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Notes -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Notas"
+                    style="@style/InputLayoutStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_notes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:lines="3"
+                        android:hint="@string/notes_hint"
+                        android:gravity="top"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Save button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/save_reading"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/primary"
+            app:cornerRadius="16dp"
+            app:elevation="4dp"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.TensionApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/gauge_diastolic</item>
+        <item name="colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.TensionApp" parent="Base.Theme.TensionApp" />
+
+    <!-- Card style -->
+    <style name="CardStyle" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Primary button -->
+    <style name="PrimaryButton" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/btn_primary_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <!-- Bottom nav style -->
+    <style name="BottomNavStyle" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemIconTint">@drawable/bottom_nav_selector</item>
+        <item name="itemTextColor">@drawable/bottom_nav_selector</item>
+        <item name="elevation">8dp</item>
+    </style>
+
+    <!-- Status chip -->
+    <style name="StatusChip" parent="Widget.Material3.Chip.Suggestion">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="chipMinHeight">32dp</item>
+    </style>
+
+    <!-- TextInputLayout style -->
+    <style name="InputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="hintTextColor">@color/primary</item>
+    </style>
+
+    <!-- Heading text -->
+    <style name="TextHeading" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextSubheading" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- Dialog -->
+    <style name="AppDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="cornerRadius">20dp</item>
+    </style>
+</resources>
