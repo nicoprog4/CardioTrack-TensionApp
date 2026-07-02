@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bottom navigation height — keeps space for labels/icons on all devices -->
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <!-- Extra safe area for Samsung/gesture-navigation devices -->
+    <dimen name="bottom_nav_safe_area_offset">32dp</dimen>
+    <!-- Icon size inside BottomNavigationView -->
+    <dimen name="bottom_nav_icon_size">24dp</dimen>
+    <!-- Minimum touch target for interactive elements -->
+    <dimen name="touch_target">48dp</dimen>
+    <!-- Small text sizes for nav labels -->
+    <dimen name="bottom_nav_label_size">12sp</dimen>
+</resources>
